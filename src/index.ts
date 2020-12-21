@@ -1,7 +1,7 @@
 // For typescript Library.
 import "make-language-json";
 
-namespace GASLibLangJsonMaker {
+export namespace GASLibLangJsonMaker {
 	export function CreateCMakeLanguageFile()
 	{
 		return new CMakeLanguageFile();
