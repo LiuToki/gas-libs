@@ -1,0 +1,33 @@
+{
+  "name": "i18next-langfile-maker",
+  "version": "1.0.0",
+  "description": "Language File Maker for i18nex",
+  "author": "LiuToki",
+  "license": "MIT",
+  "keywords": [
+    "gas",
+    "google-apps-script",
+    "ts",
+    "typescript",
+    "v8"
+  ],
+  "private": true,
+  "main": "src/index.ts",
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf build",
+    "push": "clasp push"
+  },
+  "dependencies": {
+    "@types/google-apps-script": "^1.0.20"
+  },
+  "devDependencies": {
+    "@google/clasp": "2.3.0",
+    "@types/google-apps-script": "^1.0.20",
+    "rimraf": "3.0.2",
+    "typescript": "3.8.2"
+  }
+}
