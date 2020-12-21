@@ -12,13 +12,13 @@
     "v8"
   ],
   "private": true,
-  "main": "src/index.ts",
+  "main": "lib/index.js",
   "files": [
-    "build"
+    "lib"
   ],
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf build",
+    "clean": "rm -rf lib",
     "push": "clasp push"
   },
   "dependencies": {

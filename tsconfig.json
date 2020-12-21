@@ -7,7 +7,7 @@
 		"strict": true,
 		"experimentalDecorators": true,
 		// For making npm library settings.
-		"outDir": "build",
+		"outDir": "lib",
 		"declaration": true,
 	},
 	"include": [
@@ -16,6 +16,6 @@
     "exclude": [
         "node_modules",
 		"src/main.ts",
-		"build/**/*"
+		"lib/**/*"
     ]
 }
