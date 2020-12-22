@@ -1,5 +1,5 @@
 {
-  "name": "gas-lib-lang-json-maker",
+  "name": "@types/gas-lib-lang-json-maker",
   "version": "0.0.1",
   "description": "Language File Maker for i18nex",
   "author": "LiuToki",
@@ -12,7 +12,7 @@
     "v8"
   ],
   "private": true,
-  "main": "lib/index.js",
+  "main": "",
   "types": "lib/index.d.ts",
   "files": [
     "LICENSE",
