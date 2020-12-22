@@ -1,6 +1,13 @@
 // Make Language json file class.
 
-class CMakeLanguageFile
+// export interface CMakeLanguageJson
+// {
+// 	SetKeyColumnNumber(keyColNum: number) : void;
+// 	SetLangColumnNumbers(langColNums: number[]) : void;
+// 	DoWork() : void;
+// }
+
+export class CMakeLanguageJson //Impl implements CMakeLanguageJson
 {
 	private m_sheet: any = null;	// sheet class for GAS. 
 	private m_keyColNum: number = 1;
@@ -45,10 +52,3 @@ class CMakeLanguageFile
 	}
 
 }
-
-// export namespace GASLibLangJsonMaker {
-	export function CreateCMakeLanguageFile()
-	{
-		return new CMakeLanguageFile();
-	}
-// } // namespace GASLibLangJsonMaker

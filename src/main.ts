@@ -1,7 +1,7 @@
 // For GAS Library.
-import "make-language-json";
+import { CMakeLanguageJson } from "./make-language-json";
 
-export function CreateCMakeLanguageFile()
+export function CreateCMakeLanguageFile() : CMakeLanguageJson
 {
-	return new CMakeLanguageFile();
+	return new CMakeLanguageJson();
 }
