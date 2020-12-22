@@ -45,3 +45,10 @@ class CMakeLanguageFile
 	}
 
 }
+
+// export namespace GASLibLangJsonMaker {
+	export function CreateCMakeLanguageFile()
+	{
+		return new CMakeLanguageFile();
+	}
+// } // namespace GASLibLangJsonMaker

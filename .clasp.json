@@ -1,6 +1,6 @@
 {
 	"scriptId":"1AEVC7CZeJoGaU62g5GS3Z336H4XNNjvBggC1tZFiovIxyLpq64VRxsGD",
-	"rootDir": "src/",
+	"rootDir": "./src",
 	"fileExtension": "ts",
 	"filePushOrder": []
 }

@@ -17,3 +17,5 @@ declare class CMakeLanguageFile {
      */
     DoWork(): void;
 }
+export declare function CreateCMakeLanguageFile(): CMakeLanguageFile;
+export {};
