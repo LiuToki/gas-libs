@@ -104,7 +104,7 @@ export class CMakeLanguageJson //implements CMakeLanguageJsonInterface
 	private MakeOneLanguageFile(keys: string[], valueColNum: number, filename: string): boolean
 	{
 		// 一つのjson data を作成する関数.
-		let MakeNestJsonData: Function = (keyStrArray: string[], value: string, jsonData: string): string => {
+		let MakeJsonData: Function = (keyStrArray: string[], value: string, jsonData: string): string => {
 			// 先頭のkey を取得し、配列の要素を一つ減らす.
 			let key: string = keyStrArray[0];
 			keyStrArray.shift();
@@ -113,7 +113,7 @@ export class CMakeLanguageJson //implements CMakeLanguageJsonInterface
 
 			if (keyStrArray.length > 0) {
 				jsonData += "{";
-				jsonData = MakeNestJsonData(keyStrArray, value, jsonData);
+				jsonData = MakeJsonData(keyStrArray, value, jsonData);
 			} else {
 				jsonData = jsonData + "\"" + value + "\"";
 			}
@@ -137,7 +137,7 @@ export class CMakeLanguageJson //implements CMakeLanguageJsonInterface
 		languageJson += "{";
 
 		values.forEach(value => {
-			languageJson += MakeNestJsonData
+			languageJson += MakeJsonData(keys, value, "");
 		});
 
 		languageJson += "}";
