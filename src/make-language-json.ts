@@ -29,7 +29,7 @@ export class CMakeLanguageJson //implements CMakeLanguageJsonInterface
 	constructor(sheet: GoogleAppsScript.Spreadsheet.Sheet, folderId: string)
 	{
 		this.m_sheet = sheet;	// Why typescriptese people!
-		
+
 		this.Initialize(sheet, folderId);
 	}
 
