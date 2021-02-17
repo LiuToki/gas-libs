@@ -47,7 +47,7 @@ en.json
 
 ### Install
 
-Add to compilerOptions code block in package.json
+Add to devDependencies code block in package.json
 
 ```json
 	"devDependencies": {
@@ -55,7 +55,7 @@ Add to compilerOptions code block in package.json
 	}
 ```
 
-Add to devDependencies code block in tsconfig.json
+Add to compilerOptions code block in tsconfig.json
 
 ```json
 	"compilerOptions": {
