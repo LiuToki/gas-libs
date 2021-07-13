@@ -1,6 +1,6 @@
 /**
- * @file samawah_server.h
- * @brief 
+ * @file make-language-json.ts
+ * @brief 翻訳データをjson として吐き出すためクラス.
  * @author LiuToki
  * @date 2020-12-13
  * 
