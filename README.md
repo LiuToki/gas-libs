@@ -26,7 +26,7 @@
 1. Clone or download zip.
 
 # Libraries list
-## [lang-json-maker]()
+## [lang-json-maker](https://github.com/LiuToki/gas-libs/tree/lang-json-maker)
 The library for Google Apps Script that converts translated text written in a spreadsheet into a json file.
 
 ## Author
