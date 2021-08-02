@@ -82,4 +82,4 @@ function DoMakeJson() {
 [LiuToki](https://github.com/liutoki)
 
 # Licence
-[MIT](https://github.com/LiuToki/gas-libraries/blob/main/LICENSE)
+[MIT](./LICENSE)
