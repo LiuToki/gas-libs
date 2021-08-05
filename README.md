@@ -1,46 +1,107 @@
-<h1 align="center">gas-typescript</h1>
+<h1 align="center">GAS Lib Load Visa File</h1>
 
 <div align="center">
-    <strong>A GAS Typescript Project Template</strong>
+    <strong>The library for Google Apps Script that load visa csv file and pushback to spreadsheet.</strong>
 </div>
 
 <br/>
 
 <div align="center">
     <sub>
-        This template for Google Apps Script using Typescript and clasp.
+        This library parses the SMBC card statement csv file and adds it to the spreadsheet.
     </sub>
 </div>
 
 <br/>
 
-## Table of Contents
-- [Installation](#installation)
-- [Features](#features)
-- [Author](#author)
-- [LICENSE](#license)
+## How to use in Google Apps Script.
+### Install
 
-## Installation
-### Download
-    $ git clone -b gas-typescript https://github.com/LiuToki/project-templates.git
+Script ID : 1zmRYdzeb2lIWei6nJJ8ETfo7ilTOFXRmfhryxTsSdKHVKt7uNdyET2lP
 
-or
+If you don't know how to use library, You look at this [link](https://developers.google.com/apps-script/guides/libraries).
 
-    $ wget https://github.com/LiuToki/project-templates/archive/refs/heads/gas-typescript.zip
-    $ unzip gas-typescript.zip
+### For example
+You can load smbc card payment statement csv file downloading from (vpass)[https://www.smbc-card.com/mem/index.jsp].
 
-### Change some settings.
-- .clasp.json  
-Enter your Google Apps Script ID to "scriptId".
-- src/appsscript.json
-Change "runtimeVersion" for V8 or DEPRECATED_ES5
-- src/index.ts
-Change namespace GASTypescript to your GAS Lib name.
+The csv file is looks like this.
+```csv
+三井　住友　様,4980-1234-5678-9***,三井住友
+2016/03/17,ショップ猫,3260,１,１,3260,
+2016/04/01,ワンワン薬局,7200,１,１,3260,
+```
 
-## Features
-- Typescript
-- Google Apps Script
-- google/clasp
+And file encoding is <foct style="color:red;">"sjis".</font>
+
+If you use this, you need something to do.
+
+```javascript
+// Add a menu to execute the function.
+function onOpen()
+{
+	// The first argument is the name displayed in the menu bar.
+	// The second argument is the name displayed in the menu item of the first argument.
+	GASLibLoadVisaFile.addMenuToMenuBar("読込", "visa");
+}
+
+// Implement the callbackVisa function like this.
+// This function call from Dialog, so be sure to implement with this function name and arguments.
+function callbackVisa(formObject) {
+	// The first argument specifies the argument of this function.
+	// The second and subsequent arguments are individual settings.
+	GASLibLoadVisaFile.callbackVisa(formObject, 8, 0, 1, 4, 7, 5, 6);
+}
+```
+
+Then, the new item is added to the menu bar.
+
+![menu_bar](./img/menu_bar.png)
+
+When you click the visa item, following dialog is opened.
+
+![dialog](./img/dialog.png)
+
+Select your visa csv file and the month to extract.  
+Then, push Submit button.  
+
+If successful, <font style="color: blue">"Got it!"</font> Will be displayed.
+
+## How to use in local with clasp and typescript.
+
+### Install
+
+Add to devDependencies code block in package.json
+
+```json
+	"devDependencies": {
+		"@types/gas-lib-load-visa-file": "github:LiuToki/gas-libs#load-visa-file"
+	}
+```
+
+Add to compilerOptions code block in tsconfig.json
+
+```json
+	"compilerOptions": {
+		"types": ["gas-lib-load-visa-file"]
+	}
+```
+
+### For example
+main.ts
+```typescript
+import { GASLibLoadVisaFile } from "gas-lib-load-visa-file";
+
+function onOpen()
+{
+	GASLibLoadVisaFile.addMenuToMenuBar("読込", "visa");
+}
+
+function callbackVisa(formObject) {
+	GASLibLoadVisaFile.callbackVisa(formObject, 8, 0, 1, 4, 7, 5, 6);
+}
+```
+
+## [Function description](./docs/functions_description.md)
 
 ## Author
 [LiuToki](https://github.com/LiuToki)
