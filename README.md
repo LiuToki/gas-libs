@@ -51,7 +51,7 @@ Add to devDependencies code block in package.json
 
 ```json
 	"devDependencies": {
-		"@types/gas-lib-lang-json-maker": "github:LiuToki/gas-lib-lang-json-maker"
+		"@types/gas-lib-lang-json-maker": "github:LiuToki/gas-libs#lang-json-maker"
 	}
 ```
 
