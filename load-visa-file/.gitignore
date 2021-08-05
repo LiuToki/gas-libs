@@ -1,8 +1,0 @@
-# Editor config.
-.vscode
-
-# Dependency directories
-node_modules/
-
-# Only type definitions files.
-lib/*.js
