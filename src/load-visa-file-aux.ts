@@ -49,8 +49,7 @@ export function callbackVisaAux_(formObject: any, colNum: number, colDate: numbe
 	}
 
 	if (isError) {
-		Browser.msgBox("Error: The same column number was detected.");
-		return;
+		throw new Error("The same column number was detected.");
 	}
 
 	try {
@@ -108,6 +107,6 @@ export function callbackVisaAux_(formObject: any, colNum: number, colDate: numbe
 			}
 		}
 	} catch (error) {
-		Browser.msgBox("Error: " + error);
+		throw new Error(error);
 	}
 }
