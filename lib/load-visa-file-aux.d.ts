@@ -1,19 +1,4 @@
 /**
- * For list number.
- */
-export declare class VISA_AUX {
-    static readonly LIST_TITLE: {
-        DATE: number;
-        NAME: number;
-        AMOUNT: number;
-        CLASSIFICATION: number;
-        TIMES: number;
-        PAYMENT: number;
-        REMARKS: number;
-        NUM_OF_VISA_LIST_TITLE: number;
-    };
-}
-/**
  * Setup for menu bar, please calling onOpne.
  * @param menuName Menu name for menu bar.
  * @param itemName Item name in the menu name.
