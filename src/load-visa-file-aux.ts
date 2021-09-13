@@ -97,7 +97,7 @@ export function callbackVisaAux_(formObject: any, colNum: number, colDate: numbe
 				for (var colIdx = 0; colIdx < colNum; ++colIdx) {
 					if (colIdx == colDate) { appendArray.push(textLinesCells[0]); }
 					else if (colIdx == colName) { appendArray.push(textLinesCells[1]); }
-					else if (colIdx == colAmount) { appendArray.push(textLinesCells[2]); }
+					else if (colIdx == colAmount) { appendArray.push(textLinesCells[5]); }
 					else if (colIdx == colRemarks) { appendArray.push(textLinesCells[6]); }
 					else if (colIdx == colCard) { appendArray.push("カード"); }
 					else if (colIdx == colOne) { appendArray.push(1); }
