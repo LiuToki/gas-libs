@@ -35,3 +35,6 @@ colOne|Insert "1" column.
 No need to call from user code.  
 This function is called automatically when you select a SpreadSheet menu item.
 
+# Error handring
+If an error occurs in the function, the Error object will be thrown.
+So, you should use try ... catch.
