@@ -16,7 +16,7 @@
 
 ## Table of Contents
 - [How to use](#how-to-use)
-- [Templates list](#templates-list)
+- [Libraries list](#libraries-list)
 - [Author](#author)
 - [LICENSE](#license)
 
