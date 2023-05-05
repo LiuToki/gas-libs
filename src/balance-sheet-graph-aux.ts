@@ -8,7 +8,6 @@
  * @param stockholdersEquitys Ranges for Stockholders Equitys. First column is title.
  * @param graphTitle graph title.
  * @param vAxisTitle verticle axis title.
- * @param vAxisMax verticle axis max value.
  * @param newSheet true: Create Graph to New Sheet(sheet name is same as graph name), false: Create Graph to the Active Sheet.
  */
 export function createBalanceSheetGraphAux_(
@@ -20,7 +19,6 @@ export function createBalanceSheetGraphAux_(
 	stockholdersEquitys: any,
 	graphTitle: string,
 	vAxisTitle: string,
-	vAxisMax: number,
 	newSheet: boolean): void {
 	// まずは現在のシートを取得.
 	var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -62,11 +60,7 @@ export function createBalanceSheetGraphAux_(
 	})
 	.setOption("vAxes", {
 		0: {
-			title: vAxisTitle,
-			maxValue: vAxisMax
-		},
-		1: {
-			maxValue: vAxisMax
+			title: vAxisTitle
 		}
 	})
 	.build();

@@ -11,7 +11,6 @@ import { createBalanceSheetGraphAux_ } from "./balance-sheet-graph-aux";
  * @param stockholdersEquitys Ranges for Stockholders Equitys. First column is title.
  * @param graphTitle graph title.
  * @param vAxisTitle verticle axis title.
- * @param vAxisMax verticle axis max value.
  * @param newSheet true: Create Graph to New Sheet(sheet name is same as graph name), false: Create Graph to the Active Sheet.
  */
 export function createBalanceSheetGraph(
@@ -23,7 +22,6 @@ export function createBalanceSheetGraph(
 	stockholdersEquitys: any,
 	graphTitle: string,
 	vAxisTitle: string,
-	vAxisMax: number,
 	newSheet: boolean): void {
-	createBalanceSheetGraphAux_(years, currectAssets, intansibleAssets, currentLiabilities, longTermLiabilities, stockholdersEquitys, graphTitle, vAxisTitle, vAxisMax, newSheet);
+	createBalanceSheetGraphAux_(years, currectAssets, intansibleAssets, currentLiabilities, longTermLiabilities, stockholdersEquitys, graphTitle, vAxisTitle, newSheet);
 }
