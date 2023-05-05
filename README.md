@@ -17,54 +17,31 @@
 ## How to use in Google Apps Script.
 ### Install
 
-Script ID : 1zmRYdzeb2lIWei6nJJ8ETfo7ilTOFXRmfhryxTsSdKHVKt7uNdyET2lP
+Script ID : 1An07zzzsMVb5FHIH9-RpB9kctS7Ea1F9SPXTIN75dnsfbJFu0sOzfvS8
 
 If you don't know how to use library, You look at this [link](https://developers.google.com/apps-script/guides/libraries).
 
 ### For example
-You can load smbc card payment statement csv file downloading from (vpass)[https://www.smbc-card.com/mem/index.jsp].
+This library can create stacked graph for year-to-year comparison of balance sheet contents.
 
-The csv file is looks like this.
-```csv
-三井　住友　様,4980-1234-5678-9***,三井住友
-2016/03/17,ショップ猫,3260,１,１,3260,
-2016/04/01,ワンワン薬局,7200,１,１,3260,
-```
+![graph](./img/graph.png)
 
-And file encoding is <foct style="color:red;">"sjis".</font>
+By using the following items from the balance sheet, you can roughly compare year-to-year transitions.
+Currect Assets, Intansible Assets, Current Liabilities, Long-Term Liabilities and Stockholder`s Equitys.
 
-If you use this, you need something to do.
-
+Sample Code:
 ```javascript
-// Add a menu to execute the function.
-function onOpen()
-{
-	// The first argument is the name displayed in the menu bar.
-	// The second argument is the name displayed in the menu item of the first argument.
-	GASLibLoadVisaFile.addMenuToMenuBar("読込", "visa");
-}
-
-// Implement the callbackVisa function like this.
-// This function call from Dialog, so be sure to implement with this function name and arguments.
-function callbackVisa(formObject) {
-	// The first argument specifies the argument of this function.
-	// The second and subsequent arguments are individual settings.
-	GASLibLoadVisaFile.callbackVisa(formObject, 8, 0, 1, 4, 7, 5, 6);
+function bsGraph() {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var years = sheet.getRange("A1:A4");
+  var currectAssets = sheet.getRange("B1:B4");
+  var intansibleAssets = sheet.getRange("C1:C4");
+  var currentLiabilities = sheet.getRange("D1:D4");
+  var longTermLiabilities = sheet.getRange("E1:E4");
+  var stockholdersEquitys = sheet.getRange("F1:F4");
+  GASLibBalanceSheetGraph.createBalanceSheetGraph(years, currectAssets, intansibleAssets, currentLiabilities, longTermLiabilities, stockholdersEquitys, "test", "[円]", false);
 }
 ```
-
-Then, the new item is added to the menu bar.
-
-![menu_bar](./img/menu_bar.png)
-
-When you click the visa item, following dialog is opened.
-
-![dialog](./img/dialog.png)
-
-Select your visa csv file and the month to extract.  
-Then, push Submit button.  
-
-If successful, <font style="color: blue">"Got it!"</font> Will be displayed.
 
 ## How to use in local with clasp and typescript.
 
@@ -91,13 +68,15 @@ main.ts
 ```typescript
 import { GASLibLoadVisaFile } from "gas-lib-load-visa-file";
 
-function onOpen()
-{
-	GASLibLoadVisaFile.addMenuToMenuBar("読込", "visa");
-}
-
-function callbackVisa(formObject) {
-	GASLibLoadVisaFile.callbackVisa(formObject, 8, 0, 1, 4, 7, 5, 6);
+function bsGraph() {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var years = sheet.getRange("A1:A4");
+  var currectAssets = sheet.getRange("B1:B4");
+  var intansibleAssets = sheet.getRange("C1:C4");
+  var currentLiabilities = sheet.getRange("D1:D4");
+  var longTermLiabilities = sheet.getRange("E1:E4");
+  var stockholdersEquitys = sheet.getRange("F1:F4");
+  GASLibBalanceSheetGraph.createBalanceSheetGraph(years, currectAssets, intansibleAssets, currentLiabilities, longTermLiabilities, stockholdersEquitys, "test", "[円]", false);
 }
 ```
 
