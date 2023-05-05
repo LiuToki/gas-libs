@@ -32,6 +32,9 @@ The library for Google Apps Script that converts translated text written in a sp
 ## [load-visa-file](https://github.com/LiuToki/gas-libs/tree/load-visa-file)
 The library for Google Apps Script that load visa csv file and pushback to spreadsheet.
 
+## [balance-sheet-graph](https://github.com/LiuToki/gas-libs/tree/balance-sheet-graph)
+The library for Google Apps Script that create balance sheet graph.
+
 ## Author
 [LiuToki](https://github.com/LiuToki)
 
