@@ -8,6 +8,7 @@
  * @param stockholdersEquitys Ranges for Stockholders Equitys. First column is title.
  * @param graphTitle graph title.
  * @param vAxisTitle verticle axis title.
+ * @param vAxisMax verticle axis max value.
  * @param newSheet true: Create Graph to New Sheet(sheet name is same as graph name), false: Create Graph to the Active Sheet.
  */
-export declare function createBalanceSheetGraphAux_(years: any, currectAssets: any, intansibleAssets: any, currentLiabilities: any, longTermLiabilities: any, stockholdersEquitys: any, graphTitle: string, vAxisTitle: string, newSheet: boolean): void;
+export declare function createBalanceSheetGraphAux_(years: any, currectAssets: any, intansibleAssets: any, currentLiabilities: any, longTermLiabilities: any, stockholdersEquitys: any, graphTitle: string, vAxisTitle: string, vAxisMax: number, newSheet: boolean): void;
