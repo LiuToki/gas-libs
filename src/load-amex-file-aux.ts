@@ -107,6 +107,6 @@ export function callbackVisaAux_(formObject: any, colNum: number, colDate: numbe
 			}
 		}
 	} catch (error) {
-		throw new Error(error);
+		throw error;
 	}
 }
