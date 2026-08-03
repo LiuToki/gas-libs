@@ -20,7 +20,7 @@
 		"lib"
 	],
 	"scripts": {
-		"build": "rollup --config",
+		"build": "rollup --config rollup.config.mjs",
 		"clean": "rm -rf lib",
 		"push": "npm run build && clasp push",
 		"open": "clasp open-script"

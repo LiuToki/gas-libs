@@ -14,10 +14,10 @@ menuName|Menu name for menu bar.
 itemName|Item name in the menu name.
 
 ## addItemToMenu
-	GASLibLoadAmexFile.addItemToMenu(menu, itemName);
+	menu = GASLibLoadAmexFile.addItemToMenu(menu, itemName);
 
 ### Description
-Add an Amex item to an existing menu builder. Call `addToUi()` after all items have been added to the menu.
+Add an Amex item to an existing menu builder. Use the returned menu for subsequent additions, then call `addToUi()`.
 
 ### Parameters
 Argument|Description

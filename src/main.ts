@@ -12,7 +12,7 @@ export function addMenuToMenuBar(menuName: string, itemName: string): void {
 
 /**
  * Add an item to an existing menu builder.
- * Call addToUi after all items have been added to the menu.
+ * Use the returned menu for subsequent additions, then call addToUi.
  * @param menu Existing menu builder.
  * @param itemName Item name in the menu.
  * @returns The menu builder with the Amex item added.

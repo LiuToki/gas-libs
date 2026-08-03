@@ -1,4 +1,4 @@
-var GASLibLoadAmexFile = (function (exports) {
+var GASLibLoadAmexFileBundle = (function (exports) {
     'use strict';
 
     /**
@@ -14,7 +14,7 @@ var GASLibLoadAmexFile = (function (exports) {
     }
     /**
      * Add an item to an existing menu builder.
-     * Call addToUi after all items have been added to the menu.
+     * Use the returned menu for subsequent additions, then call addToUi.
      * @param menu Existing menu builder.
      * @param itemName Item name in the menu.
      * @returns The menu builder with the Amex item added.
@@ -142,7 +142,7 @@ var GASLibLoadAmexFile = (function (exports) {
     }
     /**
      * Add an item to an existing menu builder.
-     * Call addToUi after all items have been added to the menu.
+     * Use the returned menu for subsequent additions, then call addToUi.
      * @param menu Existing menu builder.
      * @param itemName Item name in the menu.
      * @returns The menu builder with the Amex item added.
@@ -179,3 +179,28 @@ var GASLibLoadAmexFile = (function (exports) {
     return exports;
 
 })({});
+
+function addMenuToMenuBar(menuName, itemName) {
+	return GASLibLoadAmexFileBundle.addMenuToMenuBar(menuName, itemName);
+}
+
+function addItemToMenu(menu, itemName) {
+	return GASLibLoadAmexFileBundle.addItemToMenu(menu, itemName);
+}
+
+function amex() {
+	return GASLibLoadAmexFileBundle.amex();
+}
+
+function callbackAmex(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne) {
+	return GASLibLoadAmexFileBundle.callbackAmex(
+		formObject,
+		colNum,
+		colDate,
+		colName,
+		colAmount,
+		colRemarks,
+		colCard,
+		colOne
+	);
+}

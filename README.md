@@ -107,8 +107,8 @@ To add the Amex item to a menu shared with other libraries, create the menu once
 function onOpen()
 {
 	const ui = SpreadsheetApp.getUi();
-	const menu = ui.createMenu("読込");
-	GASLibLoadAmexFile.addItemToMenu(menu, "amex");
+	let menu = ui.createMenu("読込");
+	menu = GASLibLoadAmexFile.addItemToMenu(menu, "amex");
 	menu.addToUi();
 }
 ```
