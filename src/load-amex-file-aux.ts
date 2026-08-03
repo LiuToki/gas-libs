@@ -6,20 +6,20 @@
 export function addMenuToMenuBarAux_(menuName: string, itemName: string): void {
 	var ui = SpreadsheetApp.getUi();
 	var menu = ui.createMenu(menuName);
-	menu.addItem(itemName, "GASLibLoadVisaFile.visa");
+	menu.addItem(itemName, "GASLibLoadAmexFile.amex");
 	menu.addToUi();
 }
 
 /**
- * Open Visa Dialog.
+ * Open Amex Dialog.
  */
-export function visaAux_(): void {
-	var html = HtmlService.createHtmlOutputFromFile("formVisa");
-	SpreadsheetApp.getUi().showModalDialog(html, "load visa file");
+export function amexAux_(): void {
+	var html = HtmlService.createHtmlOutputFromFile("formAmex");
+	SpreadsheetApp.getUi().showModalDialog(html, "load amex file");
 }
 
 /**
- * Process visa csv file.
+ * Process amex csv file.
  * @param formObject formObject from callback.
  * @param colNum Number of column.
  * @param colDate Insert date column.
@@ -29,7 +29,7 @@ export function visaAux_(): void {
  * @param colCard Insert "カード" column.
  * @param colOne Insert "1" column.
  */
-export function callbackVisaAux_(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number): void {
+export function callbackAmexAux_(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number): void {
 
 	// 同じカラム番号は入れちゃダメ.
 	// 適当過ぎてちょっとアレなコード.
@@ -96,9 +96,9 @@ export function callbackVisaAux_(formObject: any, colNum: number, colDate: numbe
 				var appendArray = [];
 				for (var colIdx = 0; colIdx < colNum; ++colIdx) {
 					if (colIdx == colDate) { appendArray.push(textLinesCells[0]); }
-					else if (colIdx == colName) { appendArray.push(textLinesCells[1]); }
-					else if (colIdx == colAmount) { appendArray.push(textLinesCells[5]); }
-					else if (colIdx == colRemarks) { appendArray.push(textLinesCells[6]); }
+					else if (colIdx == colName) { appendArray.push(textLinesCells[2]); }
+					else if (colIdx == colAmount) { appendArray.push(textLinesCells[3]); }
+					else if (colIdx == colRemarks) { appendArray.push(textLinesCells[4] + " " + textLinesCells[5]); }
 					else if (colIdx == colCard) { appendArray.push("カード"); }
 					else if (colIdx == colOne) { appendArray.push(1); }
 					else { appendArray.push(""); }

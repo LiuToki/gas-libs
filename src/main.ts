@@ -1,5 +1,5 @@
 // For GAS Library.
-import { addMenuToMenuBarAux_, visaAux_, callbackVisaAux_ } from "./load-amex-file-aux";
+import { addMenuToMenuBarAux_, amexAux_, callbackAmexAux_ } from "./load-amex-file-aux";
 
 /**
  * Setup for menu bar, please calling onOpne.
@@ -11,14 +11,14 @@ export function addMenuToMenuBar(menuName: string, itemName: string): void {
 }
 
 /**
- * Open Visa Dialog.
+ * Open Amex Dialog.
  */
-function visa(): void {
-	visaAux_();
+function amex(): void {
+	amexAux_();
 }
 
 /**
- * Process visa csv file.
+ * Process amex csv file.
  * @param formObject formObject from callback.
  * @param colNum Number of column.
  * @param colDate Insert date column.
@@ -28,6 +28,6 @@ function visa(): void {
  * @param colCard Insert "カード" column.
  * @param colOne Insert "1" column.
  */
-function callbackVisa(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number) {
-	callbackVisaAux_(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne);
+function callbackAmex(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number) {
+	callbackAmexAux_(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne);
 }

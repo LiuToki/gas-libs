@@ -1,4 +1,4 @@
-export declare namespace GASLibLoadVisaFile {
+export declare namespace GASLibLoadAmexFile {
     /**
      * Setup for menu bar, please calling onOpne.
      * @param menuName Menu name for menu bar.
@@ -6,7 +6,7 @@ export declare namespace GASLibLoadVisaFile {
      */
     function addMenuToMenuBar(menuName: string, itemName: string): void;
     /**
-     * Process visa csv file.
+     * Process amex csv file.
      * @param formObject formObject from callback.
      * @param colNum Number of column.
      * @param colDate Insert date column.
@@ -17,5 +17,5 @@ export declare namespace GASLibLoadVisaFile {
      * @param colOne Insert "1" column.
      * @description Each column number in the range 0 to colNum, otherwise output is empty string.
      */
-    function callbackVisa(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number): void;
+    function callbackAmex(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number): void;
 }

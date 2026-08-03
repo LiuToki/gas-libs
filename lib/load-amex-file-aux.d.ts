@@ -5,11 +5,11 @@
  */
 export declare function addMenuToMenuBarAux_(menuName: string, itemName: string): void;
 /**
- * Open Visa Dialog.
+ * Open Amex Dialog.
  */
-export declare function visaAux_(): void;
+export declare function amexAux_(): void;
 /**
- * Process visa csv file.
+ * Process amex csv file.
  * @param formObject formObject from callback.
  * @param colNum Number of column.
  * @param colDate Insert date column.
@@ -19,4 +19,4 @@ export declare function visaAux_(): void;
  * @param colCard Insert "カード" column.
  * @param colOne Insert "1" column.
  */
-export declare function callbackVisaAux_(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number): void;
+export declare function callbackAmexAux_(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number): void;

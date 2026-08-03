@@ -1,7 +1,7 @@
-<h1 align="center">GAS Lib Load Visa File</h1>
+<h1 align="center">GAS Lib Load Amex File</h1>
 
 <div align="center">
-    <strong>The library for Google Apps Script that load visa csv file and pushback to spreadsheet.</strong>
+    <strong>The library for Google Apps Script that load amex csv file and pushback to spreadsheet.</strong>
 </div>
 
 <br/>
@@ -41,15 +41,15 @@ function onOpen()
 {
 	// The first argument is the name displayed in the menu bar.
 	// The second argument is the name displayed in the menu item of the first argument.
-	GASLibLoadVisaFile.addMenuToMenuBar("読込", "visa");
+	GASLibLoadAmexFile.addMenuToMenuBar("読込", "amex");
 }
 
-// Implement the callbackVisa function like this.
+// Implement the callbackAmex function like this.
 // This function call from Dialog, so be sure to implement with this function name and arguments.
-function callbackVisa(formObject) {
+function callbackAmex(formObject) {
 	// The first argument specifies the argument of this function.
 	// The second and subsequent arguments are individual settings.
-	GASLibLoadVisaFile.callbackVisa(formObject, 8, 0, 1, 4, 7, 5, 6);
+	GASLibLoadAmexFile.callbackAmex(formObject, 8, 0, 1, 4, 7, 5, 6);
 }
 ```
 
@@ -57,11 +57,11 @@ Then, the new item is added to the menu bar.
 
 ![menu_bar](./img/menu_bar.png)
 
-When you click the visa item, following dialog is opened.
+When you click the amex item, following dialog is opened.
 
 ![dialog](./img/dialog.png)
 
-Select your visa csv file and the month to extract.  
+Select your amex csv file and the month to extract.  
 Then, push Submit button.  
 
 If successful, <font style="color: blue">"Got it!"</font> Will be displayed.
@@ -89,15 +89,15 @@ Add to compilerOptions code block in tsconfig.json
 ### For example
 main.ts
 ```typescript
-import { GASLibLoadVisaFile } from "gas-lib-load-amex-file";
+import { GASLibLoadAmexFile } from "gas-lib-load-amex-file";
 
 function onOpen()
 {
-	GASLibLoadVisaFile.addMenuToMenuBar("読込", "visa");
+	GASLibLoadAmexFile.addMenuToMenuBar("読込", "amex");
 }
 
-function callbackVisa(formObject) {
-	GASLibLoadVisaFile.callbackVisa(formObject, 8, 0, 1, 4, 7, 5, 6);
+function callbackAmex(formObject) {
+	GASLibLoadAmexFile.callbackAmex(formObject, 8, 0, 1, 4, 7, 5, 6);
 }
 ```
 

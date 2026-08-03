@@ -15,7 +15,7 @@
 			window.addEventListener('load', preventFormSubmit);
 
 			function handleFormSubmit(formObject) {
-				google.script.run.withSuccessHandler(updateUrl).callbackVisa(formObject);
+				google.script.run.withSuccessHandler(updateUrl).callbackAmex(formObject);
 			}
 
 			function updateUrl(url) {

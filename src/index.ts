@@ -1,7 +1,7 @@
 // For typescript Library.
-import { addMenuToMenuBarAux_, visaAux_, callbackVisaAux_ } from "./load-amex-file-aux";
+import { addMenuToMenuBarAux_, amexAux_, callbackAmexAux_ } from "./load-amex-file-aux";
 
-export namespace GASLibLoadVisaFile {
+export namespace GASLibLoadAmexFile {
 	/**
 	 * Setup for menu bar, please calling onOpne.
 	 * @param menuName Menu name for menu bar.
@@ -12,14 +12,14 @@ export namespace GASLibLoadVisaFile {
 	}
 
 	/**
-	 * Open Visa Dialog.
+	 * Open Amex Dialog.
 	 */
-	function visa(): void {
-		visaAux_();
+	function amex(): void {
+		amexAux_();
 	}
 	
 	/**
-	 * Process visa csv file.
+	 * Process amex csv file.
 	 * @param formObject formObject from callback.
 	 * @param colNum Number of column.
 	 * @param colDate Insert date column.
@@ -30,7 +30,7 @@ export namespace GASLibLoadVisaFile {
 	 * @param colOne Insert "1" column.
 	 * @description Each column number in the range 0 to colNum, otherwise output is empty string.
 	 */
-	export function callbackVisa(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number) {
-		callbackVisaAux_(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne);
+	export function callbackAmex(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number) {
+		callbackAmexAux_(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne);
 	}
 }
