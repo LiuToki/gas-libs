@@ -1,5 +1,5 @@
 // For GAS Library.
-import { addMenuToMenuBarAux_, visaAux_, callbackVisaAux_ } from "./load-visa-file-aux";
+import { addItemToMenuAux_, addMenuToMenuBarAux_, visaAux_, callbackVisaAux_ } from "./load-visa-file-aux";
 
 /**
  * Setup for menu bar, please calling onOpne.
@@ -11,9 +11,20 @@ export function addMenuToMenuBar(menuName: string, itemName: string): void {
 }
 
 /**
+ * Add an item to an existing menu builder.
+ * Use the returned menu for subsequent additions, then call addToUi.
+ * @param menu Existing menu builder.
+ * @param itemName Item name in the menu.
+ * @returns The menu builder with the Visa item added.
+ */
+export function addItemToMenu(menu: GoogleAppsScript.Base.Menu, itemName: string): GoogleAppsScript.Base.Menu {
+	return addItemToMenuAux_(menu, itemName);
+}
+
+/**
  * Open Visa Dialog.
  */
-function visa(): void {
+export function visa(): void {
 	visaAux_();
 }
 
@@ -28,6 +39,6 @@ function visa(): void {
  * @param colCard Insert "カード" column.
  * @param colOne Insert "1" column.
  */
-function callbackVisa(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number) {
+export function callbackVisa(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number) {
 	callbackVisaAux_(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne);
 }
