@@ -1,5 +1,5 @@
 // For typescript Library.
-import { addMenuToMenuBarAux_, amexAux_, callbackAmexAux_ } from "./load-amex-file-aux";
+import { addItemToMenuAux_, addMenuToMenuBarAux_, amexAux_, callbackAmexAux_ } from "./load-amex-file-aux";
 
 export namespace GASLibLoadAmexFile {
 	/**
@@ -9,6 +9,17 @@ export namespace GASLibLoadAmexFile {
 	 */
 	export function addMenuToMenuBar(menuName: string, itemName: string): void {
 		addMenuToMenuBarAux_(menuName, itemName);
+	}
+
+	/**
+	 * Add an item to an existing menu builder.
+	 * Call addToUi after all items have been added to the menu.
+	 * @param menu Existing menu builder.
+	 * @param itemName Item name in the menu.
+	 * @returns The menu builder with the Amex item added.
+	 */
+	export function addItemToMenu(menu: GoogleAppsScript.Base.Menu, itemName: string): GoogleAppsScript.Base.Menu {
+		return addItemToMenuAux_(menu, itemName);
 	}
 
 	/**

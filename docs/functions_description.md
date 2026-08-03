@@ -13,6 +13,21 @@ Argument|Description
 menuName|Menu name for menu bar.
 itemName|Item name in the menu name.
 
+## addItemToMenu
+	GASLibLoadAmexFile.addItemToMenu(menu, itemName);
+
+### Description
+Add an Amex item to an existing menu builder. Call `addToUi()` after all items have been added to the menu.
+
+### Parameters
+Argument|Description
+-|-
+menu|Existing menu builder.
+itemName|Item name in the menu.
+
+### Returns
+The menu builder with the Amex item added.
+
 ## callbackAmex
 	GASLibLoadAmexFile.callbackAmex(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne);
 

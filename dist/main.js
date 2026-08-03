@@ -1,0 +1,181 @@
+var GASLibLoadAmexFile = (function (exports) {
+    'use strict';
+
+    /**
+     * Setup for menu bar, please calling onOpne.
+     * @param menuName Menu name for menu bar.
+     * @param itemName Item name in the menu name.
+     */
+    function addMenuToMenuBarAux_(menuName, itemName) {
+        var ui = SpreadsheetApp.getUi();
+        var menu = ui.createMenu(menuName);
+        menu.addItem(itemName, "GASLibLoadAmexFile.amex");
+        menu.addToUi();
+    }
+    /**
+     * Add an item to an existing menu builder.
+     * Call addToUi after all items have been added to the menu.
+     * @param menu Existing menu builder.
+     * @param itemName Item name in the menu.
+     * @returns The menu builder with the Amex item added.
+     */
+    function addItemToMenuAux_(menu, itemName) {
+        return menu.addItem(itemName, "GASLibLoadAmexFile.amex");
+    }
+    /**
+     * Open Amex Dialog.
+     */
+    function amexAux_() {
+        var html = HtmlService.createHtmlOutputFromFile("formAmex");
+        SpreadsheetApp.getUi().showModalDialog(html, "load amex file");
+    }
+    /**
+     * Process amex csv file.
+     * @param formObject formObject from callback.
+     * @param colNum Number of column.
+     * @param colDate Insert date column.
+     * @param colName Insert name column.
+     * @param colAmount Insert amount of money column.
+     * @param colRemarks Insert remarks column.
+     * @param colCard Insert "カード" column.
+     * @param colOne Insert "1" column.
+     */
+    function callbackAmexAux_(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne) {
+        // 同じカラム番号は入れちゃダメ.
+        // 適当過ぎてちょっとアレなコード.
+        var isError = false;
+        if (colNum == colDate || colNum == colName || colNum == colAmount || colNum == colRemarks || colNum == colCard || colNum == colOne) {
+            isError = true;
+        }
+        else if (colDate == colName || colDate == colAmount || colDate == colRemarks || colDate == colCard || colDate == colOne) {
+            isError = true;
+        }
+        else if (colName == colAmount || colName == colRemarks || colName == colCard || colName == colOne) {
+            isError = true;
+        }
+        else if (colAmount == colRemarks || colAmount == colCard || colAmount == colOne) {
+            isError = true;
+        }
+        else if (colRemarks == colCard || colRemarks == colOne) {
+            isError = true;
+        }
+        else if (colCard == colOne) {
+            isError = true;
+        }
+        if (isError) {
+            throw new Error("The same column number was detected.");
+        }
+        try {
+            // フォームで指定したテキストファイルを読み込む.
+            var fileBlob = formObject.myFile;
+            var month = formObject.month;
+            // テキストとして取得（Windowsの場合、文字コードに Shift_JIS を指定）.
+            var text = fileBlob.getDataAsString("sjis");
+            // 改行コード(\n)で分割し配列に格納する.
+            var textLines = text.split(/[\n]/);
+            // 書き込むシートを取得.
+            var sheet = SpreadsheetApp.getActiveSheet();
+            // テキストファイルをシートに展開する.
+            // 先頭はヘッダ.
+            for (var i = 0; i < textLines.length; ++i) {
+                var textLinesCells = textLines[i].split(",");
+                if (textLinesCells.length < 7 || textLinesCells[0] == "") {
+                    continue;
+                }
+                // 日付を/でパースする.
+                var date = textLinesCells[0].split("/");
+                if (date.length != 3) {
+                    continue;
+                }
+                // 月を取得.
+                var targetMonth = date[1];
+                // 先頭の0を削除.
+                {
+                    var idx = 0;
+                    while (targetMonth.charAt(idx) == "0") {
+                        ++idx;
+                    }
+                    targetMonth = targetMonth.slice(idx);
+                }
+                if (month == targetMonth) {
+                    var appendArray = [];
+                    for (var colIdx = 0; colIdx < colNum; ++colIdx) {
+                        if (colIdx == colDate) {
+                            appendArray.push(textLinesCells[0]);
+                        }
+                        else if (colIdx == colName) {
+                            appendArray.push(textLinesCells[2]);
+                        }
+                        else if (colIdx == colAmount) {
+                            appendArray.push(textLinesCells[3]);
+                        }
+                        else if (colIdx == colRemarks) {
+                            appendArray.push(textLinesCells[4] + " " + textLinesCells[5]);
+                        }
+                        else if (colIdx == colCard) {
+                            appendArray.push("カード");
+                        }
+                        else if (colIdx == colOne) {
+                            appendArray.push(1);
+                        }
+                        else {
+                            appendArray.push("");
+                        }
+                    }
+                    sheet.appendRow(appendArray);
+                }
+            }
+        }
+        catch (error) {
+            throw error;
+        }
+    }
+
+    // For GAS Library.
+    /**
+     * Setup for menu bar, please calling onOpne.
+     * @param menuName Menu name for menu bar.
+     * @param itemName Item name in the menu name.
+     */
+    function addMenuToMenuBar(menuName, itemName) {
+        addMenuToMenuBarAux_(menuName, itemName);
+    }
+    /**
+     * Add an item to an existing menu builder.
+     * Call addToUi after all items have been added to the menu.
+     * @param menu Existing menu builder.
+     * @param itemName Item name in the menu.
+     * @returns The menu builder with the Amex item added.
+     */
+    function addItemToMenu(menu, itemName) {
+        return addItemToMenuAux_(menu, itemName);
+    }
+    /**
+     * Open Amex Dialog.
+     */
+    function amex() {
+        amexAux_();
+    }
+    /**
+     * Process amex csv file.
+     * @param formObject formObject from callback.
+     * @param colNum Number of column.
+     * @param colDate Insert date column.
+     * @param colName Insert name column.
+     * @param colAmount Insert amount of money column.
+     * @param colRemarks Insert remarks column.
+     * @param colCard Insert "カード" column.
+     * @param colOne Insert "1" column.
+     */
+    function callbackAmex(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne) {
+        callbackAmexAux_(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne);
+    }
+
+    exports.addItemToMenu = addItemToMenu;
+    exports.addMenuToMenuBar = addMenuToMenuBar;
+    exports.amex = amex;
+    exports.callbackAmex = callbackAmex;
+
+    return exports;
+
+})({});

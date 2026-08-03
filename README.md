@@ -101,6 +101,18 @@ function callbackAmex(formObject) {
 }
 ```
 
+To add the Amex item to a menu shared with other libraries, create the menu once and call `addToUi()` after adding every item.
+
+```typescript
+function onOpen()
+{
+	const ui = SpreadsheetApp.getUi();
+	const menu = ui.createMenu("読込");
+	GASLibLoadAmexFile.addItemToMenu(menu, "amex");
+	menu.addToUi();
+}
+```
+
 ## [Function description](./docs/functions_description.md)
 
 ## Author

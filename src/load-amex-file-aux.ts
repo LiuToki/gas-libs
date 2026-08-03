@@ -11,6 +11,17 @@ export function addMenuToMenuBarAux_(menuName: string, itemName: string): void {
 }
 
 /**
+ * Add an item to an existing menu builder.
+ * Call addToUi after all items have been added to the menu.
+ * @param menu Existing menu builder.
+ * @param itemName Item name in the menu.
+ * @returns The menu builder with the Amex item added.
+ */
+export function addItemToMenuAux_(menu: GoogleAppsScript.Base.Menu, itemName: string): GoogleAppsScript.Base.Menu {
+	return menu.addItem(itemName, "GASLibLoadAmexFile.amex");
+}
+
+/**
  * Open Amex Dialog.
  */
 export function amexAux_(): void {

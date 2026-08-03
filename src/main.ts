@@ -1,5 +1,5 @@
 // For GAS Library.
-import { addMenuToMenuBarAux_, amexAux_, callbackAmexAux_ } from "./load-amex-file-aux";
+import { addItemToMenuAux_, addMenuToMenuBarAux_, amexAux_, callbackAmexAux_ } from "./load-amex-file-aux";
 
 /**
  * Setup for menu bar, please calling onOpne.
@@ -11,9 +11,20 @@ export function addMenuToMenuBar(menuName: string, itemName: string): void {
 }
 
 /**
+ * Add an item to an existing menu builder.
+ * Call addToUi after all items have been added to the menu.
+ * @param menu Existing menu builder.
+ * @param itemName Item name in the menu.
+ * @returns The menu builder with the Amex item added.
+ */
+export function addItemToMenu(menu: GoogleAppsScript.Base.Menu, itemName: string): GoogleAppsScript.Base.Menu {
+	return addItemToMenuAux_(menu, itemName);
+}
+
+/**
  * Open Amex Dialog.
  */
-function amex(): void {
+export function amex(): void {
 	amexAux_();
 }
 
@@ -28,6 +39,6 @@ function amex(): void {
  * @param colCard Insert "カード" column.
  * @param colOne Insert "1" column.
  */
-function callbackAmex(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number) {
+export function callbackAmex(formObject: any, colNum: number, colDate: number, colName: number, colAmount: number, colRemarks: number, colCard: number, colOne: number) {
 	callbackAmexAux_(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne);
 }
