@@ -17,7 +17,7 @@
 ## How to use in Google Apps Script.
 ### Install
 
-Script ID : 1zmRYdzeb2lIWei6nJJ8ETfo7ilTOFXRmfhryxTsSdKHVKt7uNdyET2lP
+Script ID : 1-norVBqd4blqFhLre89AiZoZjl1H4Y2ecGy1wuDcEX935PsUDeo35naA
 
 If you don't know how to use library, You look at this [link](https://developers.google.com/apps-script/guides/libraries).
 
