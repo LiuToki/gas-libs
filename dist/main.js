@@ -71,17 +71,19 @@ var GASLibLoadAmexFileBundle = (function (exports) {
             var month = formObject.month;
             // テキストとして取得（Windowsの場合、文字コードに Shift_JIS を指定）.
             var text = fileBlob.getDataAsString("sjis");
-            // 改行コード(\n)で分割し配列に格納する.
-            var textLines = text.split(/[\n]/);
+            // CSVとして解析し、ダブルクォーテーション内のカンマを区切り文字として扱わない.
+            var textLines = Utilities.parseCsv(text);
             // 書き込むシートを取得.
             var sheet = SpreadsheetApp.getActiveSheet();
             // テキストファイルをシートに展開する.
             // 先頭はヘッダ.
             for (var i = 0; i < textLines.length; ++i) {
-                var textLinesCells = textLines[i].split(",");
+                var textLinesCells = textLines[i];
                 if (textLinesCells.length < 7 || textLinesCells[0] == "") {
                     continue;
                 }
+                // 金額の桁区切りを削除する（例: "5,000" → 5000）.
+                textLinesCells[3] = textLinesCells[3].replace(/,/g, "");
                 // 日付を/でパースする.
                 var date = textLinesCells[0].split("/");
                 if (date.length != 3) {
