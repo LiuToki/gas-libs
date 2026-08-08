@@ -30,6 +30,40 @@ export function amexAux_(): void {
 }
 
 /**
+ * Parse one CSV line while preserving commas enclosed in double quotes.
+ * Escaped double quotes ("") are converted to a single double quote.
+ */
+function parseCsvLine_(line: string): string[] {
+	var cells: string[] = [];
+	var cell = "";
+	var inQuotes = false;
+
+	for (var i = 0; i < line.length; ++i) {
+		var character = line.charAt(i);
+		if (character == '"') {
+			if (inQuotes && line.charAt(i + 1) == '"') {
+				cell += '"';
+				++i;
+			} else {
+				inQuotes = !inQuotes;
+			}
+		} else if (character == "," && !inQuotes) {
+			cells.push(cell);
+			cell = "";
+		} else {
+			cell += character;
+		}
+	}
+
+	if (inQuotes) {
+		throw new Error("CSVのダブルクォーテーションが閉じられていません: " + line);
+	}
+
+	cells.push(cell);
+	return cells;
+}
+
+/**
  * Process amex csv file.
  * @param formObject formObject from callback.
  * @param colNum Number of column.
@@ -71,8 +105,8 @@ export function callbackAmexAux_(formObject: any, colNum: number, colDate: numbe
 		// テキストとして取得（Windowsの場合、文字コードに Shift_JIS を指定）.
 		var text = fileBlob.getDataAsString("sjis");
 
-		// CSVとして解析し、ダブルクォーテーション内のカンマを区切り文字として扱わない.
-		var textLines = Utilities.parseCsv(text);
+		// 改行単位に分割する（CRLFとLFの両方に対応）.
+		var textLines = text.split(/\r?\n/);
 
 		// 書き込むシートを取得.
 		var sheet = SpreadsheetApp.getActiveSheet();
@@ -80,7 +114,7 @@ export function callbackAmexAux_(formObject: any, colNum: number, colDate: numbe
 		// テキストファイルをシートに展開する.
 		// 先頭はヘッダ.
 		for (var i = 0; i < textLines.length; ++i) {
-			var textLinesCells = textLines[i];
+			var textLinesCells = parseCsvLine_(textLines[i]);
 			if (textLinesCells.length < 6 || textLinesCells[0] == "") {
 				continue;
 			}
