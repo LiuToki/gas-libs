@@ -81,7 +81,7 @@ export function callbackAmexAux_(formObject: any, colNum: number, colDate: numbe
 		// 先頭はヘッダ.
 		for (var i = 0; i < textLines.length; ++i) {
 			var textLinesCells = textLines[i];
-			if (textLinesCells.length < 7 || textLinesCells[0] == "") {
+			if (textLinesCells.length < 6 || textLinesCells[0] == "") {
 				continue;
 			}
 
