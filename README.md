@@ -35,6 +35,9 @@ The library for Google Apps Script that converts translated text written in a sp
 ## [load-amex-file](https://github.com/LiuToki/gas-libs/tree/load-amex-file)
 The library for Google Apps Script that load amex csv file and pushback to spreadsheet.
 
+## [load-jre-file](https://github.com/LiuToki/gas-libs/tree/load-jre-file)
+The library for Google Apps Script that load jre csv file and pushback to spreadsheet.
+
 ## [load-visa-file](https://github.com/LiuToki/gas-libs/tree/load-visa-file)
 The library for Google Apps Script that load visa csv file and pushback to spreadsheet.
 
