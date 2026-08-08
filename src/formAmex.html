@@ -15,7 +15,13 @@
 			window.addEventListener('load', preventFormSubmit);
 
 			function handleFormSubmit(formObject) {
-				google.script.run.withSuccessHandler(updateUrl).callbackAmex(formObject);
+				google.script.run
+				.withSuccessHandler(updateUrl)
+				.withFailureHandler(function(error) {
+					document.getElementById("output").textContent =
+							"エラー: " + error.message;
+				})
+				.callbackAmex(formObject);
 			}
 
 			function updateUrl(url) {
