@@ -101,6 +101,18 @@ function callbackVisa(formObject) {
 }
 ```
 
+To add the Visa item to a menu shared with other libraries, create the menu once and call `addToUi()` after adding every item.
+
+```typescript
+function onOpen()
+{
+	const ui = SpreadsheetApp.getUi();
+	let menu = ui.createMenu("読込");
+	menu = GASLibLoadVisaFile.addItemToMenu(menu, "visa");
+	menu.addToUi();
+}
+```
+
 ## [Function description](./docs/functions_description.md)
 
 ## Author

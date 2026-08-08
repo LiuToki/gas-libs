@@ -13,6 +13,21 @@ Argument|Description
 menuName|Menu name for menu bar.
 itemName|Item name in the menu name.
 
+## addItemToMenu
+	menu = GASLibLoadVisaFile.addItemToMenu(menu, itemName);
+
+### Description
+Add a Visa item to an existing menu builder. Use the returned menu for subsequent additions, then call `addToUi()`.
+
+### Parameters
+Argument|Description
+-|-
+menu|Existing menu builder.
+itemName|Item name in the menu.
+
+### Returns
+The menu builder with the Visa item added.
+
 ## callbackVisa
 	GASLibLoadVisaFile.callbackVisa(formObject, colNum, colDate, colName, colAmount, colRemarks, colCard, colOne);
 

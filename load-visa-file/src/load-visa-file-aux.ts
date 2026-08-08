@@ -11,6 +11,17 @@ export function addMenuToMenuBarAux_(menuName: string, itemName: string): void {
 }
 
 /**
+ * Add an item to an existing menu builder.
+ * Use the returned menu for subsequent additions, then call addToUi.
+ * @param menu Existing menu builder.
+ * @param itemName Item name in the menu.
+ * @returns The menu builder with the Visa item added.
+ */
+export function addItemToMenuAux_(menu: GoogleAppsScript.Base.Menu, itemName: string): GoogleAppsScript.Base.Menu {
+	return menu.addItem(itemName, "GASLibLoadVisaFile.visa");
+}
+
+/**
  * Open Visa Dialog.
  */
 export function visaAux_(): void {
@@ -107,6 +118,6 @@ export function callbackVisaAux_(formObject: any, colNum: number, colDate: numbe
 			}
 		}
 	} catch (error) {
-		throw new Error(error);
+		throw error;
 	}
 }

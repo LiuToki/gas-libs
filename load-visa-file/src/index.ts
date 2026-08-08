@@ -1,5 +1,5 @@
 // For typescript Library.
-import { addMenuToMenuBarAux_, visaAux_, callbackVisaAux_ } from "./load-visa-file-aux";
+import { addItemToMenuAux_, addMenuToMenuBarAux_, visaAux_, callbackVisaAux_ } from "./load-visa-file-aux";
 
 export namespace GASLibLoadVisaFile {
 	/**
@@ -9,6 +9,17 @@ export namespace GASLibLoadVisaFile {
 	 */
 	export function addMenuToMenuBar(menuName: string, itemName: string): void {
 		addMenuToMenuBarAux_(menuName, itemName);
+	}
+
+	/**
+	 * Add an item to an existing menu builder.
+	 * Use the returned menu for subsequent additions, then call addToUi.
+	 * @param menu Existing menu builder.
+	 * @param itemName Item name in the menu.
+	 * @returns The menu builder with the Visa item added.
+	 */
+	export function addItemToMenu(menu: GoogleAppsScript.Base.Menu, itemName: string): GoogleAppsScript.Base.Menu {
+		return addItemToMenuAux_(menu, itemName);
 	}
 
 	/**

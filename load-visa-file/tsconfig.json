@@ -3,7 +3,10 @@
 		// For GAS settings.
 		"lib": ["esnext"],
 		"target": "ES2019",
-		"module": "None",
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"rootDir": "src",
+		"types": ["google-apps-script"],
 		"strict": true,
 		"experimentalDecorators": true,
 		// For making npm library settings.
@@ -11,7 +14,7 @@
 		"declaration": true,
 	},
 	"include": [
-		"src/**/*"
+		"src/**/*.ts"
     ],
     "exclude": [
         "node_modules",
