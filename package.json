@@ -20,14 +20,16 @@
 		"lib"
 	],
 	"scripts": {
-		"build": "tsc",
+		"build": "rollup --config rollup.config.mjs",
 		"clean": "rm -rf lib",
 		"push": "clasp push"
 	},
 	"devDependencies": {
-		"@google/clasp": "2.3.0",
-		"@types/google-apps-script": "^1.0.37",
-		"rimraf": "3.0.2",
-		"typescript": "4.3.5"
+		"@google/clasp": "3.3.0",
+		"@rollup/plugin-typescript": "^12.3.0",
+		"@types/google-apps-script": "2.0.11",
+		"rollup": "^4.62.4",
+		"tslib": "^2.8.1",
+		"typescript": "6.0.3"
 	}
 }
