@@ -1,0 +1,9 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"declaration": false,
+		"outDir": "./dist"
+	},
+	"include": ["src/main.ts", "src/load-amex-file-aux.ts"],
+	"exclude": ["node_modules", "lib/**/*", "dist/**/*"]
+}
