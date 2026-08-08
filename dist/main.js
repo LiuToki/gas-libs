@@ -79,7 +79,7 @@ var GASLibLoadAmexFileBundle = (function (exports) {
             // 先頭はヘッダ.
             for (var i = 0; i < textLines.length; ++i) {
                 var textLinesCells = textLines[i];
-                if (textLinesCells.length < 7 || textLinesCells[0] == "") {
+                if (textLinesCells.length < 6 || textLinesCells[0] == "") {
                     continue;
                 }
                 // 金額の桁区切りを削除する（例: "5,000" → 5000）.
