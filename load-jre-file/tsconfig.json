@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		// For GAS settings.
+		"lib": ["esnext"],
+		"target": "ES2019",
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"rootDir": "src",
+		"types": ["google-apps-script"],
+		"strict": true,
+		"experimentalDecorators": true,
+		// For making npm library settings.
+		"outDir": "lib",
+		"declaration": true,
+	},
+	"include": [
+		"src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+		"src/main.ts",
+		"lib/**/*"
+    ]
+}

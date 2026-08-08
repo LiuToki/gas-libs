@@ -1,0 +1,35 @@
+{
+	"name": "@types/gas-typescript",
+	"version": "1.0.0",
+	"description": "Template for gas-typescript.",
+	"author": "LiuToki",
+	"license": "MIT",
+	"keywords": [
+		"gas",
+		"google-apps-script",
+		"typescript",
+		"clasp"
+	],
+	"private": true,
+	"main": "",
+	"types": "lib/index.d.ts",
+	"files": [
+		"LICENSE",
+		"package.json",
+		"README.md",
+		"lib"
+	],
+	"scripts": {
+		"build": "rollup --config rollup.config.mjs",
+		"clean": "rm -rf lib",
+		"push": "clasp push"
+	},
+	"devDependencies": {
+		"@google/clasp": "3.3.0",
+		"@rollup/plugin-typescript": "^12.3.0",
+		"@types/google-apps-script": "2.0.11",
+		"rollup": "^4.62.4",
+		"tslib": "^2.8.1",
+		"typescript": "6.0.3"
+	}
+}
