@@ -26,14 +26,17 @@
 1. Clone or download zip.
 
 # Libraries list
+## [balance-sheet-graph](https://github.com/LiuToki/gas-libs/tree/balance-sheet-graph)
+The library for Google Apps Script that create balance sheet graph.
+
 ## [lang-json-maker](https://github.com/LiuToki/gas-libs/tree/lang-json-maker)
 The library for Google Apps Script that converts translated text written in a spreadsheet into a json file.
 
+## [load-amex-file](https://github.com/LiuToki/gas-libs/tree/load-amex-file)
+The library for Google Apps Script that load amex csv file and pushback to spreadsheet.
+
 ## [load-visa-file](https://github.com/LiuToki/gas-libs/tree/load-visa-file)
 The library for Google Apps Script that load visa csv file and pushback to spreadsheet.
-
-## [balance-sheet-graph](https://github.com/LiuToki/gas-libs/tree/balance-sheet-graph)
-The library for Google Apps Script that create balance sheet graph.
 
 ## Author
 [LiuToki](https://github.com/LiuToki)
